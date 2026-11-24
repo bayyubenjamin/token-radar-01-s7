@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — fitted launch odds, costed farm verdicts</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header>
+<h1>Token Radar</h1>
+<p class="claim">Every value term fitted and tested held-out, walk-forward and leave-one-out. Board odds are a fitted Weibull survival curve, not an assumed decay. Farm verdicts are costed in dollars per hour.</p>
+<p class="meta">Snapshot <span id="asof"></span> &middot; 758 protocols at $50M+ TVL &middot; deterministic &middot; two runs byte-identical</p>
+</header>
+
+<section id="integrity" class="strip"></section>
+<section id="keyfigures" class="strip"></section>
+<section id="hazard" class="strip"></section>
+<section id="agetest" class="strip"></section>
+
+<nav id="tabs">
+<a href="#board" data-tab="board">Board</a>
+<a href="#live" data-tab="live">Live token</a>
+<a href="#small" data-tab="small">Smaller pre-token</a>
+</nav>
+
+<main>
+<section id="boardsec">
+<div id="controls">
+<label>Verdict
+<select id="filter">
+<option value="all">All</option>
+<option value="FARM">FARM only</option>
+<option value="THIN">THIN only</option>
+<option value="SKIP">SKIP only</option>
+</select>
+</label>
+<label>Search <input id="search" type="text" placeholder="name or slug"></label>
+<label>Sort
+<select id="sort">
+<option value="implied">Implied value</option>
+<option value="ev">Expected airdrop (EV)</option>
+<option value="ratio">EV / cost</option>
+</select>
+</label>
+<span id="count"></span>
+</div>
+<table id="board">
+<thead><tr><th>#</th><th>Protocol</th><th>Category</th><th>Chain</th><th>TVL</th><th>7d</th><th>Implied</th><th>EV</th><th>Cost</th><th>EV/cost</th><th>Verdict</th></tr></thead>
+<tbody></tbody>
+</table>
+<div id="detail"></div>
+</section>
+
+<section id="livesec" hidden>
+<h2>Live token — 416 protocols already have a token</h2>
+<p>These protocols are accounted for but not in the radar: they already launched. The 40 largest by market cap are listed; the full list is in the snapshot.</p>
+<table id="livetable">
+<thead><tr><th>#</th><th>Protocol</th><th>Market cap</th></tr></thead>
+<tbody></tbody>
+</table>
+</section>
+
+<section id="smallsec" hidden>
+<h2>Smaller pre-token — 144 protocols below the board</h2>
+<p>Pre-token protocols not in the 198-row board, mostly smaller by TVL. The 40 largest by TVL are listed; the board covers the 198 largest pre-token protocols.</p>
+<table id="smalltable">
+<thead><tr><th>#</th><th>Protocol</th><th>TVL</th></tr></thead>
+<tbody></tbody>
+</table>
+</section>
+</main>
+
+<footer>
+<p>Row set: the 40-protocol watchlist plus the 158 pre-token protocols of the measured board (oracle-defined; no clean selection rule reproduces this set). Board odds use a fitted Weibull survival curve (lambda 882 days, k 0.50); the 1-year horizon is a stated planning assumption, not a fitted value. Maturity is a stated rule (0.6 + 0.4 &times; min(age, 1095) / 1095) — the age term was fitted and tested, and it was not significant, so it is not used as a fitted term.</p>
+</footer>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

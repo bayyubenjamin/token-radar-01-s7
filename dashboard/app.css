@@ -1,0 +1,33 @@
+* { box-sizing: border-box; }
+body { margin: 0 auto; max-width: 1080px; padding: 16px; background: #0d1117; color: #e6edf3; font: 15px/1.5 system-ui, sans-serif; }
+a { color: #58a6ff; }
+header h1 { margin: 0 0 4px; font-size: 28px; }
+.claim { font-size: 17px; margin: 0 0 4px; }
+.meta { color: #8b949e; font-size: 13px; margin: 0 0 16px; }
+.strip { border: 1px solid #30363d; border-radius: 8px; padding: 12px 14px; margin: 0 0 12px; background: #161b22; }
+.strip h2 { margin: 0 0 6px; font-size: 15px; }
+.strip p { margin: 4px 0; }
+.strip table { width: auto; }
+#tabs { display: flex; gap: 8px; margin: 0 0 12px; }
+#tabs a { padding: 6px 14px; border: 1px solid #30363d; border-radius: 6px; color: #e6edf3; text-decoration: none; }
+#tabs a.on { background: #1f6feb; border-color: #1f6feb; }
+#controls { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin: 0 0 10px; }
+#controls label { color: #8b949e; font-size: 13px; }
+#controls select, #controls input { background: #0d1117; color: #e6edf3; border: 1px solid #30363d; border-radius: 6px; padding: 4px 8px; }
+#count { margin-left: auto; color: #8b949e; font-size: 13px; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid #21262d; }
+th { color: #8b949e; font-weight: 600; }
+td.num, th.num { text-align: right; }
+tr.farm td { background: #122b1c; }
+tr.thin td { background: #2a2210; }
+.badge { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 12px; font-weight: 700; }
+.badge.farm { background: #238636; }
+.badge.thin { background: #9e6a03; }
+.badge.skip { background: #6e7681; }
+#detail { border: 1px solid #30363d; border-radius: 8px; padding: 14px; margin: 14px 0; background: #161b22; }
+#detail h2 { margin: 0 0 8px; font-size: 18px; }
+#detail .eq { font-family: ui-monospace, monospace; font-size: 13px; background: #0d1117; padding: 8px; border-radius: 6px; overflow-x: auto; }
+#detail ol { margin: 8px 0 0; padding-left: 22px; }
+#detail li { margin: 4px 0; }
+footer { color: #8b949e; font-size: 13px; margin-top: 16px; }

@@ -1,0 +1,16 @@
+# Lessons reviewed before building S7
+
+- S4: the grader does NOT run the entrypoint from the repo root — main.ts resolves dashboard/ and screenshots/ relative to the script's own directory (import.meta.url). Verified by the cwd test (exit 0 from /tmp, byte-identical).
+- S4: the pre-submit gate's determinism check is a known false pass (it hashes empty dirs when MAKEFUN_OUTPUT_DIR is not set). Determinism evidence here is two real runs with MAKEFUN_OUTPUT_DIR, diff -r clean.
+- S4/S5/S6: the bundle must include --muse-usage generated from muse.db, and the declared agent facts (harness muse-app, provider ipnext, model ipnext/avocado-5.17-v2, effort default, prompt-file, prompt-origin typed, redact "Bayu Setyawan"). --session-id does NOT work for Muse app sessions; use --session <file>.
+- S6 review (NO-GO): the detail screenshot was 1280x608, short side 608 < 800. S7 captures detail at 1280x800 with an 800px viewport and verifies with `file`.
+- S6 review (NO-GO): farm.jpg showed no filtered rows (cropped from the top). S7 scrolls to the board / crops the bottom so the "Showing 48 of 198 — FARM only" count and the FARM rows are visible, and visually verifies the SUBMITTED file.
+- S6 review: README stated the design prediction 48/102/48. S7 states the actual board 48/101/49.
+- S6 review: the Weibull walk-forward + LOO were not measured (design 3.3 required them for both the comps curve and the Weibull odds). S7 measures and reports them; chunk 5 is weak and reported honestly.
+- S6 review: held-out flat 2.2447 was written as 2.244. S7 writes 2.245.
+- S6 review: the active-hours rule (2 + hold/28) was unstated. S7 states it in the dashboard and the detail panel.
+- S6 review: "identical_on_rebuild=true" was claimed as a dossier field. S7 reports determinism as a verification result, not a dossier field.
+- S1/S2/S3: the judge reads ONLY the dashboard files (main.ts + README do NOT enter the dossier). The dossier's word counts (fitted 33 / assumed 7, measured) are the honest counts of the dashboard text.
+- S3: EV must count odds ONCE (EV = implied x slice). S7 uses the S1 formula (odds once); the double-count is not repeated.
+- Authorship: all code is written fresh in this recorded session from the spec/design/review. No S4/S5/S6 source file was read or copied. The vendor file is a byte copy of the kit's makefun-board.ts (a library, not entry code).
+- Never add or edit any file in the source dir after the recording is sealed.
